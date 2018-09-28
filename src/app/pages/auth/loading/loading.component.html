@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Phantom by HTML5 UP</title>
+		<title>Angular test project</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -39,8 +39,21 @@
 							</header>
 						</div>
 						<div *ngFor="let user of data" style="left: 30px ">
-								<h1 *ngIf= "user.age >= 18" >{{user.name}}  </h1>
-							<!-- <h1>{{user.age}}</h1> -->
+							<div *ngIf= "user.age == null; else notnull" style="display: inline-flex;background-color: blue">
+									<div><h1 >asd</h1></div>
+									<div   style=" margin-left: 30px"><h1 >{{user.name}}</h1></div>
+							</div>
+							<ng-template #notnull>
+								<div *ngIf= "user.age >= 18" style="display: inline-flex;background-color: yellow">
+									<div><h1 >{{user.name}}</h1></div>
+									<div   style=" margin-left: 30px"><h1 >{{user.age}}</h1></div>
+								</div>
+								<div *ngIf= "user.age < 18 " style="display: inline-flex;background-color: red">
+										<div><h1 >{{user.name}}</h1></div>
+										<div   style=" margin-left: 30px"><h1 >{{user.age}}</h1></div>
+								</div>
+							</ng-template>
+							
 						</div>
 					</div>
 			
