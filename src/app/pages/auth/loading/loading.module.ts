@@ -9,8 +9,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthenticatedpageModule } from '../../authenticatedpage/authenticatedpage.module';
 import { HttpClientModule } from '@angular/common/http';
-import {Observable} from "rxjs/Observable";
-// import * as  mainModule from './loading/assets/js/main';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 @NgModule({
   imports: [

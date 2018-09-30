@@ -77,24 +77,4 @@ export class LoadingComponent implements OnInit {
     this.menuState = this.menuState === 'out' ? 'in' : 'out';
   }
 
-  sendEmailWithCode() {
-    console.log(this.name);
-    console.log(this.email);
-    console.log(this.message);
-    let email = this.email
-    let name = this.name
-    let message = this.message
-    let to = "Client <" + 'kittredge.chris.m@gmail.com' + ">";
-    let text = "Your access code is " + "code";
-    fetch('http://dev.api.fooddocs.ee/testtask', {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-    }).then(function(response) {
-    console.log( response.json())
-    return response.json();
-    });
-  }
 }
