@@ -15,57 +15,9 @@ import {Observable} from "rxjs/Observable";
 import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'vr-loading',
-  // templateUrl: './loading1.component.html',
   templateUrl: './loading.component.html',
   styleUrls: ['./loading.component.scss'],
-  // animations: [...ROUTE_TRANSITION],
   host: { '[@routeTransition]': '' },
-  animations: [
-    ...ROUTE_TRANSITION,
-    trigger('slideInOut', [
-      state('in', style({
-        transform: 'translate3d(0, 0, 0)'
-      })),
-      state('out', style({
-        transform: 'translate3d(100%, 0, 0)'
-      })),
-      transition('in => out', animate('400ms ease-in-out')),
-      transition('out => in', animate('400ms ease-in-out'))
-    ]),
-    trigger('menuInOut', [
-      state('out', style({
-        transform: 'translate3d(0, 0, 0)',
-      })),
-      state('in', style([{
-        transform: 'rotate(180deg)',
-      }, 
-      // getLengthresponsive() == true ? {right: '28%'} : {right:'300px'}
-      {right:'28%'}
-    ]
-    )),
-      transition('in => out', animate('400ms ease-in-out')),
-      transition('out => in', animate('400ms ease-in-out'))
-    ]),
-    trigger('menubackground', [
-      state('out', style({
-        // transform: 'translate3d(0, 0, 0)',
-        // opacity:0.7,
-        // backgroundColor:'rgba(255,255,255,0.8)'
-        display: 'none'
-      })),
-      state('in', style([{
-        
-        // transform: 'translate3d(-100%, 0, 0)',
-        background: '#ffffff8e'
-      }, 
-      // getLengthresponsive() == true ? {right: '28%'} : {right:'300px'}
-      // {right:'28%'}
-    ]
-    )),
-      transition('in => out', animate('400ms ease-in-out')),
-      transition('out => in', animate('400ms ease-in-out'))
-    ])
-  ],
   
 })
 export class LoadingComponent implements OnInit {
@@ -100,14 +52,10 @@ export class LoadingComponent implements OnInit {
     let message = this.message
     let to = "Client <" + 'kittredge.chris.m@gmail.com' + ">";
     let text = "Your access code is " + "code";
- 
-      
-      // this.http.get('http://dev.api.fooddocs.ee/testtask').subscribe(res => console.log(res.json()));
   
-        let url = `${this.apiRoot}/get`;
-        // this.http.get(url).subscribe(res => console.log(res.text())); 
-        this.http.get('http://dev.api.fooddocs.ee/testtask').subscribe(data => {
-          this.data = data;
+    let url = `${this.apiRoot}/get`;
+    this.http.get('http://dev.api.fooddocs.ee/testtask').subscribe(data => {
+      this.data = data;
       console.log(this.data);
     });
   }
@@ -130,24 +78,23 @@ export class LoadingComponent implements OnInit {
   }
 
   sendEmailWithCode() {
-    // console.log(this.name);
-    // console.log(this.email);
-    // console.log(this.message);
-    // let email = this.email
-    // let name = this.name
-    // let message = this.message
-    // let to = "Client <" + 'kittredge.chris.m@gmail.com' + ">";
-    // let text = "Your access code is " + "code";
-    // fetch('http://dev.api.fooddocs.ee/testtask', {
-    //   method: 'GET',
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json',
-    //   },
-    //     }).then(function(response) {
-    //     console.log( response.json())
-    //     return response.json();
-    //     });
+    console.log(this.name);
+    console.log(this.email);
+    console.log(this.message);
+    let email = this.email
+    let name = this.name
+    let message = this.message
+    let to = "Client <" + 'kittredge.chris.m@gmail.com' + ">";
+    let text = "Your access code is " + "code";
+    fetch('http://dev.api.fooddocs.ee/testtask', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+    }).then(function(response) {
+    console.log( response.json())
+    return response.json();
+    });
   }
-
 }
